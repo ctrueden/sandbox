@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+		http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>net.imagej</groupId>
+		<artifactId>pom-imagej</artifactId>
+		<version>13.3.0</version>
+		<relativePath />
+	</parent>
+
+	<groupId>net.restlesscoder</groupId>
+	<artifactId>sandbox</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+
+	<name>Sandbox</name>
+	<description>My personal playground.</description>
+	<url>https://github.com/ctrueden/sandbox</url>
+	<inceptionYear>2015</inceptionYear>
+	<organization>
+		<name>None</name>
+	</organization>
+	<licenses>
+		<license>
+			<name>Unlicense</name>
+			<url>http://unlicense.org/</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>ctrueden</id>
+			<name>Curtis Rueden</name>
+			<email>ctrueden@wisc.edu</email>
+			<url>http://loci.wisc.edu/people/curtis-rueden</url>
+			<organization>UW-Madison LOCI</organization>
+			<organizationUrl>http://loci.wisc.edu/</organizationUrl>
+			<timezone>-6</timezone>
+		</developer>
+	</developers>
+	<contributors>
+		<contributor><name>None</name></contributor>
+	</contributors>
+
+	<mailingLists>
+		<mailingList>
+			<name>None</name>
+		</mailingList>
+	</mailingLists>
+
+	<scm>
+		<connection>scm:git:git://github.com/ctrueden/sandbox</connection>
+		<developerConnection>scm:git:git@github.com:ctrueden/sandbox</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/ctrueden/sandbox</url>
+	</scm>
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/ctrueden/sandbox/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>None</system>
+	</ciManagement>
+
+	<properties>
+		<main-class>net.restlesscoder.sandbox.Sandbox</main-class>
+		<imagej.version>2.0.0-rc-43-SNAPSHOT</imagej.version>
+		<enforcer.skip>true</enforcer.skip>
+		<scijava.jvm.version>1.8</scijava.jvm.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>imagej.public</id>
+			<url>http://maven.imagej.net/content/groups/public</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej</artifactId>
+		</dependency>
+	</dependencies>
+</project>
