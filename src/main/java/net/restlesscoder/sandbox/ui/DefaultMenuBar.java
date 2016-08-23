@@ -1,5 +1,5 @@
 
-package net.restlesscoder.sandbox;
+package net.restlesscoder.sandbox.ui;
 
 import java.awt.Button;
 import java.awt.Frame;

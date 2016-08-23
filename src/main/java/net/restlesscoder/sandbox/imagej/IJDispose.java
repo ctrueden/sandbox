@@ -1,5 +1,5 @@
 
-package net.restlesscoder.sandbox;
+package net.restlesscoder.sandbox.imagej;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
