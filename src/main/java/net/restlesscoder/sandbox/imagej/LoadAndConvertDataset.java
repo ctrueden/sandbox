@@ -10,8 +10,8 @@ import net.imagej.Dataset;
 import net.imagej.ImageJ;
 import net.imagej.ImgPlus;
 import net.imagej.ops.Ops;
-import net.imagej.ops.special.Computers;
-import net.imagej.ops.special.UnaryComputerOp;
+import net.imagej.ops.special.computer.Computers;
+import net.imagej.ops.special.computer.UnaryComputerOp;
 import net.imglib2.IterableInterval;
 import net.imglib2.type.logic.BitType;
 import net.imglib2.type.numeric.RealType;
@@ -34,7 +34,7 @@ public class LoadAndConvertDataset {
 			makeBitType(ij, (ImgPlus) d.getImgPlus());
 
 		System.out.println("-- Original --");
-		System.out.println(ij.op().image().ascii(d.getImgPlus()));
+		System.out.println(ij.op().image().ascii((ImgPlus) d.getImgPlus()));
 		ij.ui().show(d);
 
 		System.out.println("-- Bit --");
@@ -46,8 +46,10 @@ public class LoadAndConvertDataset {
 	{
 		final UnaryComputerOp<T, BitType> bitOp = Computers.unary(ij.op(),
 			Ops.Convert.Bit.class, new BitType(), input.firstElement());
-		IterableInterval<BitType> result = ij.op().map(input, bitOp, new BitType());
-		return result;
+//		final Op bitOp = ij.op().op(Ops.Convert.Bit.class, new BitType(), input.firstElement());
+//		IterableInterval<BitType> result = ij.op().map(input, bitOp, new BitType());
+//		return result;
+		return null;
 	}
 
 }
