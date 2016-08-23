@@ -47,7 +47,8 @@ public class DefaultMenuBar {
 		final JMenuItem fileExit = new JMenuItem("ROCK");
 		file.add(fileExit);
 		menubar.add(file);
-		com.apple.eawt.Application.getApplication().setDefaultMenuBar(menubar);
+		// NB: Only works on OS X
+//		com.apple.eawt.Application.getApplication().setDefaultMenuBar(menubar);
 	}
 
 }
