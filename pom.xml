@@ -77,23 +77,47 @@
 	</repositories>
 
 	<dependencies>
+		<!-- ImageJ dependencies -->
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>ij</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>ij1-patcher</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>net.imagej</groupId>
 			<artifactId>imagej</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>net.imagej</groupId>
-			<artifactId>ij</artifactId>
+			<artifactId>imagej-common</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-ops</artifactId>
+		</dependency>
+
+		<!-- SCIFIO dependencies -->
 		<dependency>
 			<groupId>io.scif</groupId>
 			<artifactId>scifio</artifactId>
 		</dependency>
+
+		<!-- ImgLib2 dependencies -->
 		<dependency>
-			<groupId>visad</groupId>
-			<artifactId>visad-lite</artifactId>
-			<version>2.0.20070828</version>
+			<groupId>net.imglib2</groupId>
+			<artifactId>imglib2</artifactId>
 		</dependency>
+
+		<!-- SciJava dependencies -->
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scijava-common</artifactId>
+		</dependency>
+
+		<!-- Runtime dependencies -->
 		<dependency>
 			<groupId>net.imagej</groupId>
 			<artifactId>imagej-legacy</artifactId>
