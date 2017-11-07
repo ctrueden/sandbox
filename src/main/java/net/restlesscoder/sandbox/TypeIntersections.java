@@ -17,16 +17,16 @@ import org.scijava.Prioritized;
 public class TypeIntersections {
 
 	public static <T extends Disposable & Prioritized> void simple(T t) {
-		t.getPriority();
-		t.dispose();
+		t.getPriority(); // Prioritized API
+		t.dispose(); // Disposable API
 	}
 
 	public static <E, T extends List<E> & Set<E>> void generic(T t) {
-		t.get(0);
+		t.get(0); // List and Set API
 	}
 	public static <T extends RealType<T> & NativeType<T>> void recursive(T t) {
-		t.getRealDouble();
-		t.getEntitiesPerPixel();
+		t.getRealDouble(); // RealType API
+		t.getEntitiesPerPixel(); // NativeType API
 	}
 
 	public static void nonGenericIntersection() {
@@ -48,5 +48,6 @@ public class TypeIntersections {
 		final Object o = new Object();
 		// recursive(o); // compile error
 		// recursive((RealType<T> & NativeType<T>) o); // shockingly, an error!
+		recursive((T) o); // compiler warning, but works
 	}
 }
