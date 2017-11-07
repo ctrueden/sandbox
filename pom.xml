@@ -36,6 +36,7 @@
 			<id>ctrueden</id>
 			<name>Curtis Rueden</name>
 			<url>http://imagej.net/User:Rueden</url>
+			<roles><role>founder</role></roles>
 		</developer>
 	</developers>
 	<contributors>
