@@ -111,11 +111,21 @@
 			<groupId>net.imglib2</groupId>
 			<artifactId>imglib2</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>net.imglib2</groupId>
+			<artifactId>imglib2-ij</artifactId>
+		</dependency>
 
 		<!-- SciJava dependencies -->
 		<dependency>
 			<groupId>org.scijava</groupId>
 			<artifactId>scijava-common</artifactId>
+		</dependency>
+
+		<!-- Jython dependencies -->
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>jython-shaded</artifactId>
 		</dependency>
 
 		<!-- Runtime dependencies -->
