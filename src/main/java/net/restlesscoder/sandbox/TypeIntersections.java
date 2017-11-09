@@ -21,8 +21,9 @@ public class TypeIntersections {
 		t.dispose(); // Disposable API
 	}
 
-	public static <E, T extends List<E> & Set<E>> void generic(T t) {
-		t.get(0); // List and Set API
+	public static <E, T extends List<E> & Comparable<E>> void generic(T t) {
+		t.get(0); // List API
+		t.compareTo(null); // Comparable API
 	}
 	public static <T extends RealType<T> & NativeType<T>> void recursive(T t) {
 		t.getRealDouble(); // RealType API
@@ -36,10 +37,10 @@ public class TypeIntersections {
 		simple((Disposable & Prioritized) o); // works
 	}
 
-	public static <E, T extends List<E> & Set<E>> void genericIntersection() {
+	public static <E, T extends List<E> & Comparable<E>> void genericIntersection() {
 		final Object o = new Object();
 		// generic(o); // compile error
-		generic((List<E> & Set<E>) o); // compiler warning, but allowed
+		generic((List<E> & Comparable<E>) o); // compiler warning, but allowed
 	}
 
 	public static <T extends RealType<T> & NativeType<T>> void
