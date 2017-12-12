@@ -132,17 +132,19 @@ public class FuseRAIs {
 		private class FusedRandomAccess extends Point implements RandomAccess<T> {
 
 			private final List<RandomAccess<T>> ras;
+			private final ArrayList<T> samples;
 
 			public FusedRandomAccess() {
 				super(images.get(0).numDimensions());
 				ras = images.stream() //
 					.map(image -> image.randomAccess()) //
 					.collect(Collectors.toList());
+				samples = new ArrayList<>(images.size());
 			}
 
 			@Override
 			public T get() {
-				final List<T> samples = new ArrayList<>();
+				samples.clear();
 				for (int i = 0; i < images.size(); i++) {
 					if (!Intervals.contains(images.get(i), this)) continue;
 					ras.get(i).setPosition(this);
