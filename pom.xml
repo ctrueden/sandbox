@@ -68,6 +68,7 @@
 		<package-name>net.restlesscoder.sandbox</package-name>
 		<license.licenseName>unlicense</license.licenseName>
 		<license.copyrightOwners>N/A</license.copyrightOwners>
+		<imagej-ops.version>0.39.0-SNAPSHOT</imagej-ops.version>
 	</properties>
 
 	<repositories>
