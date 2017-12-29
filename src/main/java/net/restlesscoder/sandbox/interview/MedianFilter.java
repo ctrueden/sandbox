@@ -7,7 +7,7 @@ import java.util.List;
 
 public class MedianFilter {
 
-	private static void medianFilter(double[][] in, double[][] out,
+	public static void medianFilter(double[][] in, double[][] out,
 		final int radius)
 	{
 		final int h = in.length, w = in[0].length;
