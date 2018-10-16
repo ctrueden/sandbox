@@ -96,6 +96,6 @@ public class WaterShed {
 		final RandomAccessibleInterval<UnsignedByteType> stack = Views.stack(input8, edgesImg);
 
 		// TODO place in table next to original
-		ij.ui().show(stack);
+		ij.ui().show("Stack", stack);
 	}
 }
