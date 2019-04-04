@@ -6,7 +6,6 @@ import javax.swing.KeyStroke;
 import javafx.scene.input.*;
 import javafx.scene.input.KeyCombination.ModifierValue;
 
-@SuppressWarnings("restriction")
 public class JavaFXKeys {
 
 	public static void main(final String... args) {
@@ -69,7 +68,7 @@ public class JavaFXKeys {
 			KeyCode jfxKeyCode = convertKeyCode(sjKeyCode);
 			KeyCodeCombination kc = new KeyCodeCombination(jfxKeyCode, shift, control, alt, meta, shortcut);
 
-			System.out.println(s + " ::: " + ks + " =======> " + kc.getDisplayText());
+			System.out.println(s + " ::: " + ks + " =======> " + kc.toString());
 		}
 	}
 
