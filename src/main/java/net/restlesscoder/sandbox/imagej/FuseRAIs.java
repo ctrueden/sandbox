@@ -30,6 +30,8 @@ import net.imglib2.type.numeric.real.DoubleType;
 import net.imglib2.util.Intervals;
 import net.imglib2.view.IntervalView;
 
+import org.scijava.io.location.FileLocation;
+
 public class FuseRAIs {
 
 	public static void main(final String... args) throws Exception {
@@ -39,7 +41,7 @@ public class FuseRAIs {
 		final ImgOpener o = new ImgOpener(ij.context());
 		@SuppressWarnings("unchecked")
 		final Img<UnsignedByteType> clown = (Img<UnsignedByteType>) o.openImgs(
-			"/Users/curtis/data/clown8.tif").get(0);
+			new FileLocation("/Users/curtis/data/clown8.tif")).get(0);
 		final Img<DoubleType> clown64 = ij.op().convert().float64(clown);
 
 		final Img<DoubleType> gradient = ij.op().create().img(
