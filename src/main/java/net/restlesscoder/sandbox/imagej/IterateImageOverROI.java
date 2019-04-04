@@ -1,14 +1,16 @@
 
 package net.restlesscoder.sandbox.imagej;
 
+import bdv.util.BdvFunctions;
+import bdv.util.BdvOptions;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
 import net.imagej.Dataset;
 import net.imagej.ImageJ;
-import net.imagej.roi.DefaultROITree;
-import net.imagej.roi.ROITree;
+import net.imagej.roi.ROIService;
 import net.imglib2.Interval;
 import net.imglib2.IterableInterval;
 import net.imglib2.RandomAccessible;
@@ -28,26 +30,32 @@ import net.imglib2.view.IntervalView;
 import net.imglib2.view.RandomAccessibleOnRealRandomAccessible;
 import net.imglib2.view.Views;
 
-import bdv.util.BdvFunctions;
-import bdv.util.BdvOptions;
-
 public class IterateImageOverROI {
 
 	public static void main(final String... args) throws IOException {
 		// Create some ImgLib2 ROIs.
 		final WritableEllipsoid ellipsoid = GeomMasks.closedEllipsoid(new double[] {5, 6}, new double[] {7, 8});
 		final WritablePolygon2D polygon = GeomMasks.polygon2D(new double[] {2, 3, 4, 5, 6, 1, 9, 9}, new double[] {7, 5, 3, 4, 6, 1, 1, 9});
-		final List<MaskPredicate<?>> rois = Arrays.asList(ellipsoid, polygon);
 
-		// Lump them into a collection.
-		final ROITree roiTree = new DefaultROITree();
-		roiTree.addROIs(rois);
-
+		// Display the ROIs using BDV.
+		showROI(ellipsoid);
 		showROI(polygon);
 
 		ImageJ ij = new net.imagej.ImageJ();
+
+		// Load an image.
 		Dataset clown = ij.scifio().datasetIO().open("/Users/curtis/data/clown.jpg");
-		final IntervalView<UnsignedByteType> clown8 = Views.hyperSlice(clown.typedImg(new UnsignedByteType()), 2, 0);
+		final IntervalView<UnsignedByteType> clown8 = //
+			Views.hyperSlice(clown.typedImg(new UnsignedByteType()), 2, 0);
+
+		// Add the ROIs to an image.
+		final ROIService roiService = ij.get(ROIService.class);
+		roiService.add(ellipsoid, clown);
+		roiService.add(polygon, clown);
+
+		ij.ui().showUI();
+		ij.ui().show(clown);
+		if (true) return;
 
 		// Convert ROI from R^n to Z^n.
 		final RandomAccessible<BoolType> discreteROI = //
@@ -57,7 +65,7 @@ public class IterateImageOverROI {
 		final IntervalView<BoolType> boundedDiscreteROI = //
 			Views.interval(discreteROI, clown8);
 
-		// Create an iterablev ersion of the finite discrete ROI.
+		// Create an iterable version of the finite discrete ROI.
 		IterableRegion<BoolType> iterableROI = //
 			Regions.iterable(boundedDiscreteROI);
 
@@ -76,11 +84,7 @@ public class IterateImageOverROI {
 		final RealRandomAccessibleRealInterval<BoolType> rrari =
 				Masks.toRealRandomAccessibleRealInterval(roi);
 
-		RandomAccessibleOnRealRandomAccessible<BoolType> ra = Views.raster(rrari);
-
 		Interval bounds = Intervals.smallestContainingInterval(rrari);
-		IntervalView<BoolType> rai = Views.interval(ra, bounds);
-
-		BdvFunctions.show(rai, "Awesome", new BdvOptions().is2D());
+		BdvFunctions.show(rrari, bounds, "Awesome", new BdvOptions().is2D());
 	}
 }
