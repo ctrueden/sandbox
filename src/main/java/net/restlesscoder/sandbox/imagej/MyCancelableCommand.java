@@ -1,32 +1,42 @@
 
 package net.restlesscoder.sandbox.imagej;
 
+import net.imagej.ImageJ;
+
 import org.scijava.command.Command;
-import org.scijava.command.DynamicCommand;
+import org.scijava.command.InteractiveCommand;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
 
-import ij.IJ;
-import ij.ImagePlus;
-
 @Plugin(type = Command.class,
 	menuPath = "SCF>test IJ2 command>testCancelReason")
-public class MyCancelableCommand extends DynamicCommand {
+public class MyCancelableCommand extends InteractiveCommand {
 
 	@Parameter
-	ImagePlus imp;
+	private String name;
 
 	@Override
 	public void run() {
-		IJ.log("hello, image name is:" + imp.getTitle());
+		System.err.println("hello, " + name);
+		System.err.println("cancelable? " + getInfo().canCancel());
+	}
+
+	@Override
+	public void cancel(String reason) {
+		super.cancel(reason);
+		System.out.println(reason);
+		if (name != null) System.err.println("script is canceled but name is:" + name);
 	}
 
 	@Override
 	public void cancel() {
-		IJ.log(getCancelReason());
-		if (imp != null) IJ.log("script is canceled but image name is:" + imp
-			.getTitle());
-
+		System.err.println(getCancelReason());
+		if (name != null) System.err.println("script is canceled but name is:" + name);
 	}
 
+	public static void main(String...strings) {
+		ImageJ ij = new ImageJ();
+		ij.ui().showUI();
+		ij.command().run(MyCancelableCommand.class, true);
+	}
 }
