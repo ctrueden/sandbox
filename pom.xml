@@ -69,6 +69,9 @@
 		<license.licenseName>unlicense</license.licenseName>
 		<license.copyrightOwners>N/A</license.copyrightOwners>
 
+		<visad.version>2.0.0-scijava-1</visad.version>
+		<!-- NB: Needed because visad dependency is irreproducible. -->
+		<enforcer.skip>true</enforcer.skip>
 	</properties>
 
 	<repositories>
@@ -106,6 +109,10 @@
 			<groupId>io.scif</groupId>
 			<artifactId>scifio</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>io.scif</groupId>
+			<artifactId>scifio-cli</artifactId>
+		</dependency>
 
 		<!-- ImgLib2 dependencies -->
 		<dependency>
@@ -115,6 +122,10 @@
 		<dependency>
 			<groupId>net.imglib2</groupId>
 			<artifactId>imglib2-ij</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.imglib2</groupId>
+			<artifactId>imglib2-ui</artifactId>
 		</dependency>
 
 		<!-- SciJava dependencies -->
@@ -126,6 +137,12 @@
 		<dependency>
 			<groupId>sc.fiji</groupId>
 			<artifactId>bigdataviewer-vistools</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>visad</artifactId>
+			<version>${visad.version}</version>
 		</dependency>
 
 		<!-- OME dependencies -->
