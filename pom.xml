@@ -69,6 +69,8 @@
 		<visad.version>2.0.0-scijava-1</visad.version>
 		<!-- NB: Needed because visad dependency is irreproducible. -->
 		<enforcer.skip>true</enforcer.skip>
+
+		<scijava-common.version>2.87.1</scijava-common.version>
 	</properties>
 
 	<dependencies>
