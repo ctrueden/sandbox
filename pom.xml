@@ -142,7 +142,11 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- Jython dependencies -->
+		<!-- Other dependencies -->
+		<dependency>
+			<groupId>org.jfree</groupId>
+			<artifactId>jfreechart</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.python</groupId>
 			<artifactId>jython-slim</artifactId>
