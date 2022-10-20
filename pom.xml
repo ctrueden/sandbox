@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.scijava</groupId>
 		<artifactId>pom-scijava</artifactId>
-		<version>31.1.0</version>
+		<version>33.2.0</version>
 		<relativePath />
 	</parent>
 
@@ -69,8 +69,6 @@
 		<visad.version>2.0.0-scijava-1</visad.version>
 		<!-- NB: Needed because visad dependency is irreproducible. -->
 		<enforcer.skip>true</enforcer.skip>
-
-		<scijava-common.version>2.87.1</scijava-common.version>
 	</properties>
 
 	<dependencies>
@@ -142,12 +140,6 @@
 			<groupId>ome</groupId>
 			<artifactId>formats-gpl</artifactId>
 			<scope>runtime</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>ch.systems.cisd</groupId>
-					<artifactId>jhdf5</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 
 		<!-- Jython dependencies -->
