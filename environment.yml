@@ -1,0 +1,22 @@
+# Use this file to construct an environment for
+# working with the Python code in src/main/python.
+#
+# First, install mambaforge:
+#
+#   https://github.com/conda-forge/miniforge#mambaforge
+#
+# Then run:
+#
+#   mamba env create
+#   mamba activate ctrue-sandbox
+
+name: ctrue-sandbox
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python >= 3.8
+  # Project dependencies
+  - altair
+  - altair_viewer
+  - pandas
