@@ -20,7 +20,6 @@ import net.imglib2.Interval;
 import net.imglib2.Point;
 import net.imglib2.RandomAccess;
 import net.imglib2.RandomAccessibleInterval;
-import net.imglib2.Sampler;
 import net.imglib2.View;
 import net.imglib2.img.Img;
 import net.imglib2.img.display.imagej.ImageJFunctions;
@@ -154,7 +153,7 @@ public class FuseRAIs {
 			}
 
 			@Override
-			public Sampler<T> copy() {
+			public RandomAccess<T> copy() {
 				throw new UnsupportedOperationException();
 			}
 

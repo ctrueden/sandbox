@@ -100,7 +100,7 @@ public class WaterShedInverted {
 		// paint each edge region onto the edges image
 		for (final LabelRegion<Integer> region : regions) {
 			final Boundary<BoolType> b = new Boundary<>(region);
-			final Cursor<Void> cursor = b.cursor();
+			final Cursor<Void> cursor = b.inside().cursor();
 			while (cursor.hasNext()) {
 				cursor.fwd();
 				edgesImgRA.setPosition(cursor.getIntPosition(0), 0);
